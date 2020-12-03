@@ -48,6 +48,44 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+           <plugin>
+               <groupId>pl.project13.maven</groupId>
+               <artifactId>git-commit-id-plugin</artifactId>
+               <version>4.0.3</version>
+               <executions>
+                 <execution>
+                   <id>git-info-properties</id>
+                   <goals>
+                     <goal>revision</goal>
+                   </goals>
+                   <configuration>
+                     <format>properties</format>
+                     <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                     <generateGitPropertiesFilename>${project.build.outputDirectory}/META-INF/git.properties</generateGitPropertiesFilename>
+                   </configuration>
+                 </execution>
+                 <execution>
+                   <id>git-info-json</id>
+                   <goals>
+                     <goal>revision</goal>
+                   </goals>
+                   <configuration>
+                     <format>json</format>
+                     <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                     <generateGitPropertiesFilename>${project.build.outputDirectory}/META-INF/git.json</generateGitPropertiesFilename>
+                   </configuration>
+                 </execution>
+               </executions>
+               <configuration>
+                 <prefix>git</prefix>
+                 <dateFormat>yyyy-MM-dd'T'HH:mm:ssZ</dateFormat>
+                 <dotGitDirectory>${maven.multiModuleProjectDirectory}/.git</dotGitDirectory>
+                 <gitDescribe>
+                   <skip>false</skip>
+                   <always>true</always>
+                 </gitDescribe>
+               </configuration>
+           </plugin>
 		</plugins>
 	</build>
 
