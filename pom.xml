@@ -10,11 +10,12 @@
 	</parent>
 	<groupId>me.leantech</groupId>
 	<artifactId>versioning-demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${revision}</version>
 	<name>versioning-demo</name>
 	<description>Demo project for git versioning for service and image</description>
 
     <properties>
+        <revision>git</revision>
 		<java.version>11</java.version>
 	</properties>
 
